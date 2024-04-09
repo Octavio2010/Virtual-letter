@@ -1,13 +1,12 @@
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBf_XuR2T8jsKVeapM7zmHHAC7Cqsv3N0U",
-  authDomain: "aula-94-40e5a.firebaseapp.com",
-  databaseURL: "https://aula-94-40e5a-default-rtdb.firebaseio.com",
-  projectId: "aula-94-40e5a",
-  storageBucket: "aula-94-40e5a.appspot.com",
-  messagingSenderId: "128429505899",
-  appId: "1:128429505899:web:cbd468f5fbec113106202e",
-  measurementId: "G-FY7W0E3C2G"
+  apiKey: "AIzaSyCqErGevd6HA9suNy_J0sofQIuP60Pbmn0",
+  authDomain: "virtual-letter-92b9d.firebaseapp.com",
+  databaseURL: "https://virtual-letter-92b9d-default-rtdb.firebaseio.com",
+  projectId: "virtual-letter-92b9d",
+  storageBucket: "virtual-letter-92b9d.appspot.com",
+  messagingSenderId: "253665035859",
+  appId: "1:253665035859:web:b16e10e36f02e9176de8a6"
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -20,7 +19,7 @@ function addRoom()//Botão adiciona sala//
   roomName = document.getElementById("roomName").value;
   //Eu quero uma ferramenta do html, o input//
 
-  firebase.database().ref("/").child(roomName).update({//É firebase, uma plataforma que fornece bancos de dados, que guardam registros e informações nossas//
+  firebase.database().ref("/rooms").child(roomName).update({//É firebase, uma plataforma que fornece bancos de dados, que guardam registros e informações nossas//
     purpose: "adicionar nome de sala"//Purpose é um comando que chama o nome da sala//
   });
 
@@ -30,7 +29,7 @@ function addRoom()//Botão adiciona sala//
 }
 // Função getData(), essa função obtém todos os nomes das salas que estão no firebase e as exibe em kwitterRoom.html
 function getData() {
-  firebase.database().ref("/").on('value', function (snapshot) {
+  firebase.database().ref("/rooms").on('value', function (snapshot) {
     document.getElementById("output").innerHTML = ""; snapshot.forEach(function (childSnapshot) {
       childKey = childSnapshot.key;
       roomNames = childKey;
